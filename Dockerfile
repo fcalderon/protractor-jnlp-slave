@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -yq google-chrome-stable
 # nvm environment variables
 ENV NVM_DIR /usr/local/nvm
 
-RUN npm install -g protractor
+RUN npm install -g protractor@5.4.3
 RUN webdriver-manager update
 
 
