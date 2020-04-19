@@ -1,4 +1,4 @@
-FROM jenkinsci/jnlp-slave
+FROM fcalderon/node-jnlp-slave
 
 USER root
 
@@ -16,16 +16,8 @@ RUN apt-get update && apt-get install -yq google-chrome-stable
 # nvm environment variables
 ENV NVM_DIR /usr/local/nvm
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-
-RUN apt-get install nodejs
-
-RUN npm install -g @angular/cli@^8.2.0
-RUN npm install -g typescript@3.5.3
 RUN npm install -g protractor
 RUN webdriver-manager update
 
-RUN chown -R jenkins:jenkins /home/jenkins/.npm
-RUN chown -R jenkins:jenkins /home/jenkins/.config
 
 USER jenkins
